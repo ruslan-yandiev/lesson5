@@ -1,14 +1,25 @@
+require_relative 'module_manufacturer'
+
 class Train
+  include Manufacturer
+
   attr_reader :number, :carrig
 
+  @@train_collection = []
+
   def initialize
-    @number = 1
+    @number = 0
     @speed = 0
     @route
     @arr_stations = []
     @train_now = nil
     @sum = 0
     @carrig = []
+    @@train_collection << self
+  end
+
+  def self.find(number_train)
+    p @@train_collection[number_train - 1]
   end
 
   def number!(number_tr)

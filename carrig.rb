@@ -1,4 +1,9 @@
+require_relative 'module_manufacturer'
+
+
 class Carrig
+  include Manufacturer
+
   attr_reader :number
 
   def initialize

@@ -17,7 +17,7 @@ class Сonstructor
       exit
     end
 
-    amount.times do |index|
+      1.upto(amount) do |index|
       if @collection[number].nil?
         puts 'Вы неверно указали номер!!!'
       elsif @collection[number].new.instance_of? Station

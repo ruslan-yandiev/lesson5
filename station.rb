@@ -1,9 +1,17 @@
 class Station
   attr_reader :name, :train
 
+  @@all = []
+
   def initialize
     @name
     @trains = []
+    @@all << self
+  end
+
+  def self.all
+    puts "Всего создано станций #{@@all.size}:"
+    @@all.each.with_index(1) { |station, index| puts "#{index}. #{station.name}" }
   end
 
   def get_train(train)
@@ -31,3 +39,4 @@ class Station
     @name = name_st
   end
 end
+
