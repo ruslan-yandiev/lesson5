@@ -1,4 +1,8 @@
 class Station
+  # include InstanceCounter
+
+  @instances_object = 30
+
   attr_reader :name, :train
 
   @@all = []
@@ -7,6 +11,7 @@ class Station
     @name
     @trains = []
     @@all << self
+    register_instance
   end
 
   def self.all
@@ -16,7 +21,7 @@ class Station
 
   def get_train(train)
     @trains << train
-    puts "На станцию #{name} прибыл поезд: #{train.class},  №#{train.number}"
+    puts "На станцию #{name} прибыл поезд: #{train.class},  №#{train.number}, произведенный компанией #{train.name_manufacturer}"
   end
 
   def show_trains_info(type = nil)

@@ -1,6 +1,3 @@
-require_relative 'module_manufacturer'
-
-
 class Carrig
   include Manufacturer
 
@@ -32,7 +29,7 @@ class Carrig
   end
 
   def to_s
-    "Тип вагона: #{self.class}, номер: #{number}, соединен ли с поездом: #{@status}, "
+    "Тип вагона: #{self.class}, номер: #{number}, соединен ли с поездом: #{@status}, производитель #{self.name_manufacturer} "
   end
 
   # Методы необходимо инкапсулировать, для того, чтобы их статус мог быть изменен

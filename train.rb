@@ -2,10 +2,19 @@ require_relative 'module_manufacturer'
 
 class Train
   include Manufacturer
+  # include InstanceCounter
 
   attr_reader :number, :carrig
 
   @@train_collection = []
+
+  class << self
+    attr_reader :instances_object
+
+    def plus
+      @instances_object += 1
+    end
+  end
 
   def initialize
     @number = 0
@@ -16,6 +25,11 @@ class Train
     @sum = 0
     @carrig = []
     @@train_collection << self
+    register_instance
+  end
+
+  def register_instance
+    self.class.plus
   end
 
   def self.find(number_train)
@@ -47,7 +61,7 @@ class Train
   end
 
   def show_carriages
-    puts "Поезд тип: #{self.class} №#{self.number} присоединено вагонов: #{@carrig.size}"
+    puts "Поезд тип: #{self.class} №#{self.number}, произведен #{self.name_manufacturer} присоединено вагонов: #{@carrig.size}"
     @carrig.each { |carrig| puts carrig }
   end
 

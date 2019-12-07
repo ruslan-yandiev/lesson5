@@ -1,9 +1,14 @@
 class Route
+  # include InstanceCounter
+
+  @instances_object = 20
+
   attr_accessor :route, :name
 
   def initialize
     @name
     @route = []
+    register_instance
   end
 
   def add_stations(new_route)

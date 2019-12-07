@@ -31,18 +31,22 @@ class Сonstructor
       elsif  @collection[number].new.instance_of? CargoTrain
         object = @collection[number].new
         object.number!(index)
+        object.name_manufacturer!
         @cargo_trains << object
       elsif  @collection[number].new.instance_of? PassengerTrain
         object = @collection[number].new
         object.number!(index)
+        object.name_manufacturer!
         @passenger_trains << object
       elsif  @collection[number].new.instance_of? FreightCarrig
         object = @collection[number].new
         object.number!(index)
+        object.name_manufacturer!
         @f_carrigs << object
       elsif  @collection[number].new.instance_of? PassengerCarrig
         object = @collection[number].new
         object.number!(index)
+        object.name_manufacturer!
         @p_carrigs << object
       end
     end
@@ -52,6 +56,7 @@ class Сonstructor
 
   def start
     show_all_object
+    Station.all
     route!
     correct_route
     connect_carrig!
