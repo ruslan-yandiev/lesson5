@@ -20,7 +20,7 @@ class Train
 
   class << self
     def find(number_train)
-      p @train_collection[number_train - 1]
+      puts @train_collection[number_train - 1]
     end
 
     def get(inst_object)

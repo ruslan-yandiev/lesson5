@@ -68,6 +68,7 @@ class Сonstructor
     passenger_train_add_route
     go_go
     go_back
+    find!
     show_amount_object
   end
 
@@ -78,6 +79,33 @@ class Сonstructor
     \n#{CargoTrain.instances} грузовых поезда.
     \n#{Route.instances} маршрута.
     \n#{Station.instances} станции."
+  end
+
+  def find!
+    puts 'Хотите отобразить объект грузового поезда по его номеру?(да/нет)?'
+    yes_or_no = gets.chomp
+
+    if yes_or_no == 'да'
+      print 'Укажите номер поезда:'
+      number = gets.chomp.to_i
+
+      CargoTrain.find(number)
+    end
+
+    puts 'Хотите отобразить объект пассажирского поезда по его номеру?(да/нет)?'
+    yes_or_no = gets.chomp
+
+    if yes_or_no == 'да'
+      print 'Укажите номер поезда:'
+      number = gets.chomp.to_i
+
+      PassengerTrain.find(number)
+    end
+
+    puts 'Хотите закончить процедуру отображение объектов поездов (да/нет)'
+    yes_or_no = gets.chomp
+
+    self.find! if yes_or_no != 'да'
   end
 
   def route!
