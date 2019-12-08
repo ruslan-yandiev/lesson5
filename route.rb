@@ -1,7 +1,7 @@
 class Route
-  # include InstanceCounter
+  include InstanceCounter
 
-  @instances_object = 20
+  @instances = 0
 
   attr_accessor :route, :name
 

@@ -1,21 +1,21 @@
 module InstanceCounter
-  def self.included(arg_class)
+  def self.included(arg_class) # InstanceCounter.included(Train)
     arg_class.extend ClassMethods
     arg_class.send :include, InstanceMethods
   end
 
   module ClassMethods
-    def instances
-      @instances_object = 1000
+    attr_reader :instances
+
+    def plus
+      @instances += 1
     end
   end
 
   module InstanceMethods
     def register_instance
-      @instances_object = 3333
-      puts self.class.instances
+      self.class.plus
     end
-
-    # protected :register_instance
+    protected :register_instance
   end
 end

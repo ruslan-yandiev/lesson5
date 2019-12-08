@@ -17,33 +17,33 @@ class Сonstructor
       exit
     end
 
-      1.upto(amount) do |index|
+      amount.times do |index|
       if @collection[number].nil?
         puts 'Вы неверно указали номер!!!'
-      elsif @collection[number].new.instance_of? Station
+      elsif @collection[number] == Station
         object = @collection[number].new
         object.name!
         @stations << object
-      elsif  @collection[number].new.instance_of? Route
+      elsif  @collection[number] == Route
         object = @collection[number].new
         object.name!
         @routes << object
-      elsif  @collection[number].new.instance_of? CargoTrain
+      elsif  @collection[number] == CargoTrain
         object = @collection[number].new
         object.number!(index)
         object.name_manufacturer!
         @cargo_trains << object
-      elsif  @collection[number].new.instance_of? PassengerTrain
+      elsif  @collection[number] == PassengerTrain
         object = @collection[number].new
         object.number!(index)
         object.name_manufacturer!
         @passenger_trains << object
-      elsif  @collection[number].new.instance_of? FreightCarrig
+      elsif  @collection[number] == FreightCarrig
         object = @collection[number].new
         object.number!(index)
         object.name_manufacturer!
         @f_carrigs << object
-      elsif  @collection[number].new.instance_of? PassengerCarrig
+      elsif  @collection[number] == PassengerCarrig
         object = @collection[number].new
         object.number!(index)
         object.name_manufacturer!
@@ -68,6 +68,16 @@ class Сonstructor
     passenger_train_add_route
     go_go
     go_back
+    show_amount_object
+  end
+
+  def show_amount_object
+    puts
+    puts "Всего создано:
+    \n#{PassengerTrain.instances} пассажирских поезда.
+    \n#{CargoTrain.instances} грузовых поезда.
+    \n#{Route.instances} маршрута.
+    \n#{Station.instances} станции."
   end
 
   def route!
@@ -306,13 +316,11 @@ class Сonstructor
   end
 
   def show_all_object
-  40.times {print '='}
   self.stations.each {|x| p x}
   self.routes.each {|x| p x}
   self.cargo_trains.each {|x| p x}
   self.passenger_trains.each {|x| p x}
   self.f_carrigs.each {|x| p x}
   self.p_carrigs.each {|x| p x}
-  40.times {print '='}
   end
 end

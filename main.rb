@@ -10,41 +10,33 @@ require_relative 'station'
 require_relative 'route'
 require_relative 'сonstructor'
 
-# arr = [
-# "- Создавать станции",
-# "- Создавать поезда",
-# "- Создавать маршруты и управлять станциями в нем (добавлять, удалять)",
-# "- Назначать маршрут поезду",
-# "- Добавлять вагоны к поезду",
-# "- Отцеплять вагоны от поезда",
-# "- Перемещать поезд по маршруту вперед и назад",
-# "- Просматривать список станций и список поездов на станции"]
+arr = [
+"- Создавать станции",
+"- Создавать поезда",
+"- Создавать маршруты и управлять станциями в нем (добавлять, удалять)",
+"- Назначать маршрут поезду",
+"- Добавлять вагоны к поезду",
+"- Отцеплять вагоны от поезда",
+"- Перемещать поезд по маршруту вперед и назад",
+"- Просматривать список станций и список поездов на станции"]
 
-# puts 'Программа позволит:'
-# arr.each { |x| puts x }
-# puts
-# choices = Сonstructor.new
+puts 'Программа позволит:'
+arr.each { |x| puts x }
+puts
+choices = Сonstructor.new
 
-# begin
-#   choices.collection.each_with_index do |type, index|
-#     puts "\t#{index}. create: #{type}s"
-#   end
-#   puts
-#   print 'Выберите номер действия: '
-#   number = gets.chomp.to_i
+begin
+  choices.collection.each_with_index do |type, index|
+    puts "\t#{index}. create: #{type}s"
+  end
+  puts
+  print 'Выберите номер действия: '
+  number = gets.chomp.to_i
 
-#   print 'Сколько обхектов создать: '
-#   amount = gets.chomp.to_i
+  print 'Сколько обхектов создать: '
+  amount = gets.chomp.to_i
 
-#   choices.constructor(number, amount)
-# end while choices.collection.size != 0
+  choices.constructor(number, amount)
+end while choices.collection.size != 0
 
-# choices.start
-
-passenger_train = PassengerTrain.new
-passenger_train2 = PassengerTrain.new
-cargo_train = CargoTrain.new
-cargo_train2 = CargoTrain.new
-cargo_train3 = CargoTrain.new
-puts CargoTrain.instances_object
-puts PassengerTrain.instances_object
+choices.start

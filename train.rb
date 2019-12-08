@@ -2,38 +2,34 @@ require_relative 'module_manufacturer'
 
 class Train
   include Manufacturer
-  # include InstanceCounter
+  include InstanceCounter #Train.include(InstanceCounter)
 
   attr_reader :number, :carrig
 
-  @@train_collection = []
-
-  class << self
-    attr_reader :instances_object
-
-    def plus
-      @instances_object += 1
-    end
-  end
-
   def initialize
-    @number = 0
+    @number = 1
     @speed = 0
     @route
     @arr_stations = []
     @train_now = nil
     @sum = 0
     @carrig = []
-    @@train_collection << self
     register_instance
+    get!
   end
 
-  def register_instance
-    self.class.plus
+  class << self
+    def find(number_train)
+      p @train_collection[number_train - 1]
+    end
+
+    def get(inst_object)
+      @train_collection << inst_object
+    end
   end
 
-  def self.find(number_train)
-    p @@train_collection[number_train - 1]
+  def get!
+    self.class.get(self)
   end
 
   def number!(number_tr)
