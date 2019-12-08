@@ -3,13 +3,9 @@ class Carrig
 
   attr_reader :number
 
-  def initialize
-    @number = 1
+  def initialize(numb)
+    @number = numb
     @status = false
-  end
-
-  def number!(number_carr)
-    @number += number_carr
   end
 
   def change_status(train)

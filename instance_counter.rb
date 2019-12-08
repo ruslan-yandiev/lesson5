@@ -8,6 +8,7 @@ module InstanceCounter
     attr_reader :instances
 
     def plus
+      @instances ||= 0 #@instances = @instances || 0
       @instances += 1
     end
   end

@@ -1,8 +1,6 @@
 class Station
   include InstanceCounter
 
-  @instances = 0
-
   attr_reader :name, :train
 
   @@all = []
@@ -15,8 +13,7 @@ class Station
   end
 
   def self.all
-    puts "Всего создано станций #{@@all.size}:"
-    @@all.each.with_index(1) { |station, index| puts "#{index}. #{station.name}" }
+    @@all
   end
 
   def get_train(train)

@@ -1,6 +1,5 @@
 class CargoTrain < Train
-  @instances = 0
-  @train_collection = []
+  @train_collection = {}
 
   def add_carrig(carrig)
     if carrig.instance_of? FreightCarrig

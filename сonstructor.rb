@@ -17,7 +17,7 @@ class Сonstructor
       exit
     end
 
-      amount.times do |index|
+    1.upto(amount) do |index|
       if @collection[number].nil?
         puts 'Вы неверно указали номер!!!'
       elsif @collection[number] == Station
@@ -29,23 +29,19 @@ class Сonstructor
         object.name!
         @routes << object
       elsif  @collection[number] == CargoTrain
-        object = @collection[number].new
-        object.number!(index)
+        object = @collection[number].new(index)
         object.name_manufacturer!
         @cargo_trains << object
       elsif  @collection[number] == PassengerTrain
-        object = @collection[number].new
-        object.number!(index)
+        object = @collection[number].new(index)
         object.name_manufacturer!
         @passenger_trains << object
       elsif  @collection[number] == FreightCarrig
-        object = @collection[number].new
-        object.number!(index)
+        object = @collection[number].new(index)
         object.name_manufacturer!
         @f_carrigs << object
       elsif  @collection[number] == PassengerCarrig
-        object = @collection[number].new
-        object.number!(index)
+        object = @collection[number].new(index)
         object.name_manufacturer!
         @p_carrigs << object
       end
@@ -56,7 +52,7 @@ class Сonstructor
 
   def start
     show_all_object
-    Station.all
+    p Station.all
     route!
     correct_route
     connect_carrig!

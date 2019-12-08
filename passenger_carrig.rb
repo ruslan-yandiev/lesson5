@@ -1,8 +1,8 @@
 class PassengerCarrig < Carrig
   attr_reader :passenger_capacity
 
-  def initialize
-    super
+  def initialize(numb)
+    super(numb)
     @passenger_capacity = 60
   end
 

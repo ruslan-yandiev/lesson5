@@ -1,8 +1,6 @@
 class Route
   include InstanceCounter
 
-  @instances = 0
-
   attr_accessor :route, :name
 
   def initialize

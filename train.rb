@@ -6,8 +6,8 @@ class Train
 
   attr_reader :number, :carrig
 
-  def initialize
-    @number = 1
+  def initialize(numb)
+    @number = numb
     @speed = 0
     @route
     @arr_stations = []
@@ -20,20 +20,16 @@ class Train
 
   class << self
     def find(number_train)
-      puts @train_collection[number_train - 1]
+      puts @train_collection[number_train]
     end
 
-    def get(inst_object)
-      @train_collection << inst_object
+    def get(key, value)
+      @train_collection[key] = value
     end
   end
 
   def get!
-    self.class.get(self)
-  end
-
-  def number!(number_tr)
-    @number += number_tr
+    self.class.get(@number, self)
   end
 
   def type_train
